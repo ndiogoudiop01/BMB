@@ -1,5 +1,11 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'home.dart';
 
-void main() {}
+void main() {
+  runApp(
+    new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    ),
+  );
+}
