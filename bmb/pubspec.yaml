@@ -68,6 +68,26 @@ flutter:
     - assets/images/SLIDE-MACRAIL4.png
     - assets/images/TEST-SLIDE-PANNEAUX-REVETEMENT9.jpg
     - assets/images/TEST-SLIDE-VISSERIE.jpg
+    - assets/cart/alu.jpg
+    - assets/cart/C3S-30276.jpg
+    - assets/cart/colles.jpg
+    - assets/cart/etancheite.jpg
+    - assets/cart/fer-forge.jpg
+    - assets/cart/ferdeco.jpg
+    - assets/cart/feuille-PLEXIGLAS.jpg
+    - assets/cart/films.jpg
+    - assets/cart/groupe.jpg
+    - assets/cart/INOX.jpg
+    - assets/cart/machinerie.jpg
+    - assets/cart/MACRAIL.jpg
+    - assets/cart/outillage.jpg
+    - assets/cart/pneus.jpg
+    - assets/cart/rideau-metallique.jpg
+    - assets/cart/sanitaire.jpg
+    - assets/cart/serrures.jpg
+    - assets/cart/toiture.jpg
+    - assets/cart/vitrerie.jpg
+    - assets/cart/volet-roulant.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

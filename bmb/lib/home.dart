@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-
+import 'components/horizontal_listview.dart';
+import 'components/products.dart';
 /*class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,10 +29,10 @@ class _HomePageState extends State<HomePage> {
       child: new Carousel(
         boxFit: BoxFit.cover,
         images: [
-          Image.asset('images/SLIDE-FER-1.png'),
-          Image.asset('images/SLIDE-INOX.png'),
-          Image.asset('images/SLIDE-MACRAIL4.png'),
-          Image.asset('images/TEST-SLIDE-PANNEAUX-REVETEMENT9.jpg'),
+          Image.asset('assets/images/SLIDE-FER-1.png'),
+          Image.asset('assets/images/SLIDE-INOX.png'),
+          Image.asset('assets/images/SLIDE-MACRAIL4.png'),
+          Image.asset('assets/images/TEST-SLIDE-PANNEAUX-REVETEMENT9.jpg'),
         ],
         autoplay: true,
         animationCurve: Curves.fastOutSlowIn,
@@ -143,9 +144,23 @@ class _HomePageState extends State<HomePage> {
       body: new ListView(
         children: <Widget>[
           image_carousel,
+
+          //padding widget
           new Padding(
             padding: const EdgeInsets.all(8.0),
-            child: new Text('data'),
+            child: new Text('Categories'),),
+
+          HorizontalList(),
+
+          //padding widget
+          new Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: new Text('Produits Récents'),),
+
+          //grid view
+          Container(
+            height: 320.0,
+            child: Produits(),
           )
         ],
       ),
