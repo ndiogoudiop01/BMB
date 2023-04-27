@@ -25,7 +25,19 @@ class _ProduitsState extends State<Produits> {
       "image": "assets/produits/BMB-12026.jpg",
       "old_price": 3000,
       "price": 4500,
-    }
+    },
+    {
+      "name": "BMB-12026",
+      "image": "assets/produits/BMB-12026.jpg",
+      "old_price": 3000,
+      "price": 4500,
+    },
+    {
+      "name": "BMB-12023",
+      "image": "assets/produits/BMB-12023.jpg",
+      "old_price": 7000,
+      "price": 5500,
+    },
   ];
 
   @override
@@ -62,29 +74,25 @@ class Single_prod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: Hero(
-      tag: product_name,
+      tag: new Text("Hero 1"),
       child: Material(
         child: InkWell(
           onTap: () => Navigator.of(context).push(new MaterialPageRoute(
               builder: (context) => new ProduitDetails(
-                product_detail_nom: product_name,
-                product_detail_picture: product_piture,
-                product_detail_price: product_price,
-                product_detail_old_price: product_old_price
-              ))),
+                  product_detail_nom: product_name,
+                  product_detail_picture: product_piture,
+                  product_detail_price: product_price,
+                  product_detail_old_price: product_old_price))),
           child: GridTile(
             footer: Container(
-              color: Colors.white70,
-              child: ListTile(
-                leading: Text(
-                  product_name,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                title: Text(
-                  "\CFA $product_price",
-                  style:
-                      TextStyle(color: Colors.red, fontWeight: FontWeight.w800),
-                ),
+              color: Colors.white,
+              child: new Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(product_name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),),
+                  ),
+                  new Text("\CFA ${product_price}", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+                ],
               ),
             ),
             child: Image.asset(

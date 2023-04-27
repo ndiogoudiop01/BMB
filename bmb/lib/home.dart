@@ -2,8 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+
 import 'components/horizontal_listview.dart';
 import 'components/products.dart';
+import 'package:bmb/pages/cart.dart';
+
 /*class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,7 @@ class _HomePageState extends State<HomePage> {
         animationDuration: Duration(milliseconds: 6000),
         dotSize: 4.0,
         dotColor: Colors.red[600],
+        dotBgColor: Colors.transparent,
         indicatorBgPadding: 2.0,
       ),
     );
@@ -60,7 +64,10 @@ class _HomePageState extends State<HomePage> {
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              onPressed: () {})
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Commande()));
+              })
         ],
       ),
       drawer: new Drawer(
@@ -86,35 +93,50 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: ListTile(
                 title: Text('Accueil'),
-                leading: Icon(Icons.home),
+                leading: Icon(
+                  Icons.home,
+                  color: Colors.red,
+                ),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('Mon Compte'),
-                leading: Icon(Icons.person),
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.red,
+                ),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('Produits'),
-                leading: Icon(Icons.dashboard),
+                leading: Icon(
+                  Icons.dashboard,
+                  color: Colors.red,
+                ),
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => new Commande()));},
               child: ListTile(
                 title: Text('Commandes'),
-                leading: Icon(Icons.shopping_basket),
+                leading: Icon(
+                  Icons.shopping_basket,
+                  color: Colors.red,
+                ),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('Favoris'),
-                leading: Icon(Icons.home),
+                leading: Icon(
+                  Icons.home,
+                  color: Colors.red,
+                ),
               ),
             ),
             Divider(),
@@ -148,14 +170,16 @@ class _HomePageState extends State<HomePage> {
           //padding widget
           new Padding(
             padding: const EdgeInsets.all(8.0),
-            child: new Text('Categories'),),
+            child: new Text('Categories'),
+          ),
 
           HorizontalList(),
 
           //padding widget
           new Padding(
             padding: const EdgeInsets.all(10.0),
-            child: new Text('Produits Récents'),),
+            child: new Text('Produits Récents'),
+          ),
 
           //grid view
           Container(

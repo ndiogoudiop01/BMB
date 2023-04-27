@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bmb/home.dart';
 
 class ProduitDetails extends StatefulWidget {
   final product_detail_nom;
@@ -24,7 +25,13 @@ class _ProduitDetailsState extends State<ProduitDetails> {
       appBar: new AppBar(
         elevation: 0.1,
         backgroundColor: Colors.red,
-        title: Text('Boutique bmb'),
+        title: InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => new HomePage()));
+          },
+          child: Text("Produit Details"),
+        ),
         actions: <Widget>[
           new IconButton(
               icon: Icon(
@@ -32,13 +39,6 @@ class _ProduitDetailsState extends State<ProduitDetails> {
                 color: Colors.white,
               ),
               onPressed: () {}),
-          new IconButton(
-              // ignore: prefer_const_constructors
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              ),
-              onPressed: () {})
         ],
       ),
       body: new ListView(
@@ -254,8 +254,119 @@ class _ProduitDetailsState extends State<ProduitDetails> {
               )
             ],
           ),
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Produits Simailres"),
+          ),
+//  ========= SECTION PRODUITS SIMILAIRES ++++++++++++++++++++++++++++++++++++++
+          Container(
+            height: 360.0,
+            child: Similar_product(),
+          ),
         ],
       ),
     );
+  }
+}
+
+class Similar_product extends StatefulWidget {
+  @override
+  _Similar_productState createState() => _Similar_productState();
+}
+
+class _Similar_productState extends State<Similar_product> {
+  var produit_list = [
+    {
+      "name": "BMB-12003",
+      "image": "assets/produits/BMB-12003.jpg",
+      "old_price": 5000,
+      "price": 4500,
+    },
+    {
+      "name": "BMB-12023",
+      "image": "assets/produits/BMB-12023.jpg",
+      "old_price": 7000,
+      "price": 5500,
+    },
+    {
+      "name": "BMB-12023",
+      "image": "assets/produits/BMB-12023.jpg",
+      "old_price": 7000,
+      "price": 5500,
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        itemCount: produit_list.length,
+        gridDelegate:
+            new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemBuilder: (BuildContext context, int index) {
+          return Similar_single_prod(
+            product_name: produit_list[index]["name"],
+            product_piture: produit_list[index]["image"],
+            product_old_price: produit_list[index]["old_price"],
+            product_price: produit_list[index]["price"],
+          );
+        });
+  }
+}
+
+class Similar_single_prod extends StatelessWidget {
+  final product_name;
+  final product_piture;
+  final product_old_price;
+  final product_price;
+
+  Similar_single_prod({
+    this.product_name,
+    this.product_piture,
+    this.product_old_price,
+    this.product_price,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        child: Hero(
+      tag: new Text("Hero 1"),
+      child: Material(
+        child: InkWell(
+          onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+              builder: (context) => new ProduitDetails(
+                  product_detail_nom: product_name,
+                  product_detail_picture: product_piture,
+                  product_detail_price: product_price,
+                  product_detail_old_price: product_old_price))),
+          child: GridTile(
+            footer: Container(
+              color: Colors.white,
+              child: new Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      product_name,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
+                    ),
+                  ),
+                  new Text(
+                    "\CFA ${product_price}",
+                    style: TextStyle(
+                        color: Colors.red, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            child: Image.asset(
+              product_piture,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+    ));
   }
 }
