@@ -38,6 +38,18 @@ class _ProduitsState extends State<Produits> {
       "old_price": 7000,
       "price": 5500,
     },
+    {
+      "name": "BMB-12023",
+      "image": "assets/produits/BMB-12023.jpg",
+      "old_price": 7000,
+      "price": 5500,
+    },
+    {
+      "name": "BMB-12023",
+      "image": "assets/produits/BMB-12023.jpg",
+      "old_price": 7000,
+      "price": 5500,
+    }
   ];
 
   @override
@@ -47,11 +59,14 @@ class _ProduitsState extends State<Produits> {
         gridDelegate:
             new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
-          return Single_prod(
-            product_name: produit_list[index]["name"],
-            product_piture: produit_list[index]["image"],
-            product_old_price: produit_list[index]["old_price"],
-            product_price: produit_list[index]["price"],
+          return Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Single_prod(
+              product_name: produit_list[index]["name"],
+              product_piture: produit_list[index]["image"],
+              product_old_price: produit_list[index]["old_price"],
+              product_price: produit_list[index]["price"],
+            ),
           );
         });
   }
@@ -89,9 +104,17 @@ class Single_prod extends StatelessWidget {
               child: new Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text(product_name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),),
+                    child: Text(
+                      product_name,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
+                    ),
                   ),
-                  new Text("\CFA ${product_price}", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+                  new Text(
+                    "\CFA ${product_price}",
+                    style: TextStyle(
+                        color: Colors.red, fontWeight: FontWeight.bold),
+                  )
                 ],
               ),
             ),

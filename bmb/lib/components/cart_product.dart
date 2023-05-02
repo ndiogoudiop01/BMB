@@ -70,9 +70,13 @@ class Single_commande_produit extends StatelessWidget {
     return Card(
       child: ListTile(
 //*££££££££££££££££££££ LEADING SECTION £££££££££
-        leading: new Image.asset(c_prod_picture, width: 80.0, height: 80.0,),
+        leading: new Image.asset(
+          c_prod_picture,
+          width: 80.0,
+          height: 80.0,
+        ),
 
- //++++++++++++++++++ TITLE SECTION +++++++++++++++++++
+        //++++++++++++++++++ TITLE SECTION +++++++++++++++++++
         title: new Text(c_prod_name),
 //++++++++++++++++++ SUBTITLE SECTION +++++++
         subtitle: new Column(
@@ -87,7 +91,10 @@ class Single_commande_produit extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: new Text(c_prod_size, style: TextStyle(color: Colors.red),),
+                  child: new Text(
+                    c_prod_size,
+                    style: TextStyle(color: Colors.red),
+                  ),
                 ),
                 //****** section pour la couleur
                 new Padding(
@@ -96,16 +103,40 @@ class Single_commande_produit extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: new Text(c_prod_color, style: TextStyle(color: Colors.red),),
+                  child: new Text(
+                    c_prod_color,
+                    style: TextStyle(color: Colors.red),
+                  ),
                 )
               ],
             ),
- //       ------- SECTION POUR LE PRIX DU PRODUITS --------------------
-          new Container(
-            alignment: Alignment.topLeft,
-            child: new Text("\CFA ${c_prod_price}", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.red),),
-          ),          
+            //       ------- SECTION POUR LE PRIX DU PRODUITS --------------------
+            new Container(
+              alignment: Alignment.topLeft,
+              child: new Text(
+                "\CFA ${c_prod_price}",
+                style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red),
+              ),
+            ),
           ],
+        ),
+
+        trailing: new SingleChildScrollView(
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              new IconButton(icon: Icon(Icons.arrow_drop_up), onPressed: () {}),
+              new Text("${c_prod_qte}"),
+              new IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_drop_down),
+              )
+            ],
+          ),
         ),
       ),
     );

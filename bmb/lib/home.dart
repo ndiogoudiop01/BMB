@@ -120,7 +120,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
-              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => new Commande()));},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Commande()));
+              },
               child: ListTile(
                 title: Text('Commandes'),
                 leading: Icon(
@@ -163,29 +166,34 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: new ListView(
+      body: new Column(
         children: <Widget>[
           image_carousel,
 
           //padding widget
           new Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: new Text('Categories'),
+            padding: const EdgeInsets.all(4.0),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: new Text('Categories'),
+            ),
           ),
 
           HorizontalList(),
 
           //padding widget
           new Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: new Text('Produits Récents'),
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: new Text('Produits Récents'),
+            ),
           ),
 
           //grid view
-          Container(
-            height: 320.0,
+          Flexible(
             child: Produits(),
-          )
+          ),
         ],
       ),
     );
