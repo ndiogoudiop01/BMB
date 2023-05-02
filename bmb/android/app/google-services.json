@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "944705957648",
+    "project_id": "etsmbayeetfrere",
+    "storage_bucket": "etsmbayeetfrere.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944705957648:android:421777937f78f2c423ff95",
+        "android_client_info": {
+          "package_name": "com.example.bmb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944705957648-8onp7gms30viq8etcf5mt0s1r3gskkg7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bmb",
+            "certificate_hash": "40faa6b728b9d8598351746486c21555e996823c"
+          }
+        },
+        {
+          "client_id": "944705957648-o8fpetg79kpnvdtte5pngpjbi0cmggde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZk5mW8BP4WLeBAQCysI9v35Tap1xphjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944705957648-o8fpetg79kpnvdtte5pngpjbi0cmggde.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
