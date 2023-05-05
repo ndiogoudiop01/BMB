@@ -1,42 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:bmb/services/authentication.dart';
 
 class Login extends StatefulWidget {
+  Login({Key? key}) : super(key: key);
+
   @override
-  _LoginState createState() => _LoginState();
+  State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  final GoogleSignIn googleSignIn = new GoogleSignIn();
-  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  SharedPreferences preferences;
-  bool loading = false;
-  bool isLogedin = false;
-
-  @override
-  void initState() {
-    super.initState();
-    isSignedIn();
-  }
-
-  void isSignedIn() async{
-    setState(() {
-      loading = true;
-    });
-
-    preferences = await SharedPreferences.getInstance();
-    isLogedin = await googleSignIn.isSignedIn();
-    if(isLogedin){}
-  }
+  bool inLoadingProcess = false;
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.40,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    image: DecorationImage(
+                      image: AssetImage("images/MAISON-BMB.jpg"),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+              Text(
+                'ETS MBAYE ET FRERE(BMB)',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline4?.copyWith(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  "Decouvrez nos larges produits d'aluminium",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              inLoadingProcess
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : ElevatedButton(
+                      onPressed: () {},
+                      child: Text("Connecter vous avec Google"),
+                    ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
-
+  signIn() {
+    setState(() {
+      inLoadingProcess = true;
+      Authentication().signInWithGoogle();
+    });
+  }
 }
