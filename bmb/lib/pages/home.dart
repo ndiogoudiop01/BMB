@@ -1,7 +1,5 @@
-// ignore_for_file: unnecessary_new, prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 
 import '../components/horizontal_listview.dart';
 import '../components/products.dart';
@@ -41,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         animationCurve: Curves.fastOutSlowIn,
         animationDuration: Duration(milliseconds: 6000),
         dotSize: 4.0,
-        dotColor: Colors.red[600],
+        dotColor: Colors.red,
         dotBgColor: Colors.transparent,
         indicatorBgPadding: 2.0,
       ),

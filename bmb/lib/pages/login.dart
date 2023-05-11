@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
                       child: CircularProgressIndicator(),
                     )
                   : ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => signIn(),
                       child: Text("Connecter vous avec Google"),
                     ),
             ],
