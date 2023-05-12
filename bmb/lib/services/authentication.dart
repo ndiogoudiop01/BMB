@@ -5,7 +5,7 @@ class Authentication {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     clientId:
-        "944705957648-o8fpetg79kpnvdtte5pngpjbi0cmggde.apps.googleusercontent.com",
+        "670640972253-ke2d8ttjtuess57a3d0hi5spojp2ip7e.apps.googleusercontent.com",
   );
 
   //COnnexion avec le google
