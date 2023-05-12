@@ -8,7 +8,12 @@ import 'package:bmb/services/authentication.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: 'AIzaSyAZk5mW8BP4WLeBAQCysI9v35Tap1xphjo',
+          appId: "1:944705957648:android:421777937f78f2c423ff95",
+          messagingSenderId: "944705957648",
+          projectId: "etsmbayeetfrere"));
   runApp(MultiProvider(
     providers: [
       StreamProvider.value(initialData: null, value: Authentication().user)

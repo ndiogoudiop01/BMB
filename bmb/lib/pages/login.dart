@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
                 decoration: BoxDecoration(
                     color: Colors.grey,
                     image: DecorationImage(
-                      image: AssetImage("images/MAISON-BMB.jpg"),
+                      image: AssetImage("assets/images/MAISON-BMB.jpg"),
                       fit: BoxFit.cover,
                     )),
               ),
