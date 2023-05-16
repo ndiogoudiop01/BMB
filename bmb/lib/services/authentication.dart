@@ -4,8 +4,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 class Authentication {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn(
-    clientId:
-        "670640972253-ke2d8ttjtuess57a3d0hi5spojp2ip7e.apps.googleusercontent.com",
+    serverClientId:
+        '944705957648-mplbeud4befh92sf3chj0tnjln1ldcvc.apps.googleusercontent.com',
   );
 
   //COnnexion avec le google
